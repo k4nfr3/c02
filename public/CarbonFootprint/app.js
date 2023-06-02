@@ -28,7 +28,7 @@ function rename_activity(activity) {
 function calculate_co2(activity_item) {
     switch (activity_item.activity) {
         case 'Flying':
-            return activity_item.distance * (128 / 1000)
+            return activity_item.distance * (66 / 1000)
         case 'Train':
             return activity_item.distance * ( 7.5 / 1000)
         case 'Subway':
