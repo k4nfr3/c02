@@ -1,0 +1,69 @@
+approximate sine/cos with neural net
+
+analyse sentiment timeline in speaches / books / movies
+	break into sentences 
+	compute sentiment
+	look for pattern
+	
+Recreate homer picture
+	https://www.youtube.com/watch?v=QVuU2YCwHjw
+	How (idea)
+		Find pixel edges/points
+		Convert to graph
+		Find euler/hamilton path through graph to build parametric x/y signal
+		Fourier transform this x/y
+		
+Generate all possible pictures
+	500x500 pixel grid that updates as a function of time
+	estimate how long to famous pictures
+	
+Crossword solver 
+	use word2vec	
+	or constraints
+	
+Make a functioning haskell program without prelude
+	https://wiki.haskell.org/No_import_of_Prelude
+	
+API given email address returns info on that person
+	finds facebook/linkedin profile
+
+Use echonest api to blend songs
+	Like infinite jukebox but for more than 1 song
+	http://labs.echonest.com/Uploader/faq.html
+
+does resampling (with replacement) training data between epochs improve generalisation
+
+age a face using neural nets
+	use same method as google deep dreams
+	
+hill climbing algorithms do actual hill climbing
+
+determine most likely location of reddit user based on time of posts.
+	Could get ground truth by analysing city subreddits in known time zones.
+
+train a NN to send signals via sound
+	basically need to trainan autoencoder that transmits sound in the middle
+	
+Find hidden airports
+	Track planes like the one in HAI video (https://www.youtube.com/watch?v=pWNGAUvSyOc) 
+	from historic data https://uk.flightaware.com/live/flight/N859WP.
+	Planes about to land should be slowing down to dropping in altitude.
+	How should disappear at regular locations
+	
+	Maybe using proportion of disappearing planes in area could be interesting
+	
+Colony of neural networks
+	Can a colony of neural networks evolve together?
+	Simulate an ant colony, success being solving group challenges like https://www.quantamagazine.org/the-simple-algorithm-that-ants-use-to-build-bridges-20180226/
+	https://openreview.net/pdf?id=Hk8N3Sclg
+	
+Does readability score of companies shareholder letters change over time?
+	https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests
+	https://www.youtube.com/watch?v=4ab2ZeZ-krY
+	More confusing = something to hide
+
+Play with cloud functions
+	Show that they're actually stateful. Implement a counter and show that it increments between invocations
+	Can you build a whole domain with routing?
+
+Office meal ordering system

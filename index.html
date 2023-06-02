@@ -1,0 +1,54 @@
+---
+layout: default
+title: Home
+---
+
+<div id="content">
+    <div id="header">
+        <h1>Mark Dunne</h1>
+        <p>Data Scientist working in genetic engineering startup</p>
+    </div>
+
+    <hr />
+
+    <ul>
+        <li><a href="mailto:markdunne02@gmail.com">Contact</a></li>
+        <li>
+<!--             <a href="/public/mark-dunne-stock-market-prediction.pdf">
+                Undergraduate Thesis - On Stock Market Prediction and Machine Learning
+            </a> -->
+        </li>
+        <li>
+            <a href="/public/cold_spring_harbor_poster.pdf">
+                Cold Spring Harbor Laboratory Poster - Evaluating Predictors of CRISPR SpCas9 guide
+                RNA performance.
+            </a>
+        </li>
+    </ul>
+
+    <hr />
+
+    <h2>Experiments</h2>
+
+    <ul>
+        {% for post in site.posts %} {% if post.is_experiment == true %}
+        <li>
+            <a href="{{ post.url }}">
+                {{ post.date | date_to_string }} - {{ post.title }}
+            </a>
+        </li>
+        {% endif %} {% endfor %}
+    </ul>
+
+    <h2>Posts</h2>
+
+    <ul>
+        {% for post in site.posts %} {% if post.is_experiment == false %}
+        <li>
+            <a href="{{ post.url }}">
+                {{ post.date | date_to_string }} - {{ post.title }}
+            </a>
+        </li>
+        {% endif %} {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,151 @@
+---
+is_experiment: true
+---
+
+{% raw %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <style type="text/css">
+    input[type='file'] {
+        display: none;
+    }
+
+    .spinner {
+        border: 8px solid #f3f3f3;
+        /* Light grey */
+        border-top: 8px solid #3498db;
+        /* Blue */
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        /*animation: spin 2s linear infinite;*/
+        display: inline-block;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .progress-bar p {
+        margin-top: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .progress-bar .outer {
+        width: 100%;
+        height: 38px;
+        border-radius: 4px;
+        border: 1px solid #bbb;
+    }
+
+    .progress-bar .inner {
+        /*width: 50%;*/
+        height: 38px;
+        background-color: #33C3F0;
+    }
+    #last_year_co2 {
+        color: #f03333;
+    }
+    #diagrams_div {
+        text-align: center;
+    }
+    #diagrams_div > div {
+        margin-top: 1rem;
+    }
+    </style>
+</head>
+
+<body class="">
+    <div class="container" id="app">
+        <div>
+            <h1>Google Maps Timeline Carbon Footprint</h1>
+            <p><b>Google tracks your location history and how you get around. This tool calculates your transportation carbon footprint based on that data.</b></p>
+        </div>
+        <hr>
+        <div class="section">
+            <p>This website requires analyzing your sensitive data. This data is not stored or uploaded and never leaves your computer, but there is no reason to trust that. Learn to put your browser into offline mode before clicking the analyze button.</p>
+
+            <h3>How to run this tool</h3>
+            <ol>
+                <li>Make sure you have some Google location history in <a href="https://www.google.com/maps/timeline">https://www.google.com/maps/timeline</a></li>
+                <li>Go to <a href='https://takeout.google.com/settings/takeout'>https://takeout.google.com/settings/takeout</a></li>
+                <li>Deselect all but "Location History"</li>
+                <li>Click Next Step and follow the instructions to create and download a single takeout zip file</li>
+                <li>Enable Offline mode</li>
+                <li>Click "Analyze Google Takeout.zip" and select the takout zip file</li>
+                <li>View result</li>                
+            </ol>
+        </div>
+        <hr>
+        <div id="page_one">
+            <div>
+                <label class="button button-primary">
+                    <input type="file" id="file-upload" v-on:change="handleFileUpload" />
+                    Analyze Google Takeout.zip
+                </label>
+                <button v-on:click="use_example_data">
+                    Use Example Data
+                </button>
+            </div>
+
+            <div>
+                <div class="progress-bar" v-if="show_progress_bar">
+                    <p>Analyzing location history...</p>
+                    <div class="outer">
+                        <div class="inner" v-bind:style="{ width: pc_done }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="result_ready">
+            <hr>
+            <div>
+                <h2>Results</h2>
+                <p><b>British people use about 2.16 tons of Co2 on transport. In {{ last_year }} you used <span id="last_year_co2">{{ co2_last_year }} tons</span> of Co2 on transport.</b></p>
+                <hr>
+                <div id="diagrams_div">
+                    <div id="co2_per_year_diagram"></div>
+                    <div id="co2_punchcard_diagram"></div>    
+                </div>                
+            </div>
+            <hr>
+            <div>
+                <h2>What you can do about it</h2>
+                <p>Todo...</p>
+            </div>
+            <hr>
+            <div>
+                <h2>Sources</h2>
+                <ol>
+                    <li><a href="https://www.bbc.co.uk/news/science-environment-49349566">https://www.bbc.co.uk/news/science-environment-49349566</a></li>
+                    <li><a href="https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019">https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019</a></li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script type="text/javascript" src="/public/CarbonFootprint/dist/jszip.min.js"></script>    
+    <script type="text/javascript" src="/public/CarbonFootprint/example_data.js"></script>
+    <script type="text/javascript" src="/public/CarbonFootprint/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.9.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.1.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.2"></script>
+</body>
+
+</html>
+
+{% endraw %}

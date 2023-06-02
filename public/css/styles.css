@@ -1,0 +1,41 @@
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+.content, #content{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+}
+
+#header p{
+	margin-top: -20px;
+	color: #889;	
+}
+
+ul{
+	list-style: none;
+	padding: 0;
+}
+
+li{
+	margin-top: 20px;
+}
+
+hr {
+	height: 1px;
+    border: 0; border-top: 1px solid #e8e8e8;
+    margin: 30px;
+}
+
+/* link styles from bootstrap */
+a {
+  color: rgb(51, 122, 183);
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: rgb(35, 82, 124);	
+	text-decoration: underline;
+}
