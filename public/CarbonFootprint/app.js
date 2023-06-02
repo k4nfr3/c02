@@ -53,9 +53,9 @@ function calculate_co2(activity_item) {
 
 function parse_history(file_path, file_data) {
 
-    if (file_path.indexOf('2019') == -1) {
-        return
-    }
+    //if (file_path.indexOf('2019') == -1) {
+    //    return
+    //}
 
     if ('activitySegment' in file_data) {
         activity = file_data.activitySegment
