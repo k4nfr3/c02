@@ -18,7 +18,7 @@ title: Home
     <ul>
         {% for post in site.posts %} {% if post.is_experiment == true %}
         <li>
-            <a href="{{ post.url }}">
+            <a href="/c02/{{ post.url }}">
                 {{ post.date | date_to_string }} - {{ post.title }}
             </a>
         </li>
